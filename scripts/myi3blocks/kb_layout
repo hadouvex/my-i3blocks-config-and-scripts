@@ -1,0 +1,15 @@
+#!/bin/sh
+
+LAYOUT=$(xkblayout-state print "%s" | awk '{print toupper($0)}')
+
+case $LAYOUT in
+    "US")
+        echo -n "<span foreground='#ECECEC' weight='bold' background='#285577'> "
+        echo -n ${LAYOUT}
+        echo " </span>"
+    ;;
+    "RU")
+        echo -n "<span background='#ECECEC' weight='bold' foreground='#285577'> "
+        echo -n ${LAYOUT}
+        echo " </span>"
+esac
